@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient List</title>
+  </head>
+  <body>
+    <h2>Patient List</h2>
+    <ul>
+      {% for patient in patients %}
+      <li>
+        <a href="{% url 'patient_detail' patient.id %}"
+          >{{ patient.first_name }} {{ patient.last_name }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'patient_create' %}">Add New Patient</a>
+  </body>
+</html>

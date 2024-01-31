@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+  </head>
+  <body>
+    <h1>Welcome to our clinic management system</h1>
+    <ul>
+      <li><a href="{% url 'doctor_list' %}">Doctors</a></li>
+      <li><a href="{% url 'patient_list' %}">Patients</a></li>
+      <li><a href="{% url 'appointment_list' %}">Appointments</a></li>
+      <li><a href="{% url 'medicalrecord_list' %}">Medical Records</a></li>
+      <li><a href="{% url 'operation_list' %}">Operations</a></li>
+      <li><a href="{% url 'inventory_list' %}">Inventory</a></li>
+    </ul>
+  </body>
+</html>

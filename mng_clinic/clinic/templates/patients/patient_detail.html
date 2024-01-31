@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Patient Detail: {{ patient.first_name }} {{ patient.last_name }}
+    </title>
+  </head>
+  <body>
+    {% block content %}
+    <h2>Patient Detail: {{ patient.first_name }} {{ patient.last_name }}</h2>
+    <p>Email: {{ patient.email_address }}</p>
+    <p>Contact: {{patient.contact_number}}</p>
+    <p>Address: {{patient.address}}</p>
+    <p>Medical history: {{patient.medical_history}}</p>
+    <p>Allergies: {{patient.allergies}}</p>
+
+    <a href="{% url 'patient_update' patient.id %}">Edit Patient</a>
+    <a href="{% url 'patient_delete' patient.id %}">Delete</a>
+    {% endblock %}
+  </body>
+</html>

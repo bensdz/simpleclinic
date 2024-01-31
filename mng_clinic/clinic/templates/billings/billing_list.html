@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billing Records</title>
+  </head>
+  <body>
+    {% block content %}
+    <h2>Billing Records</h2>
+
+    <ul>
+      {% for billing in object_list %}
+      <li>
+        {{ billing.patient }} - {{ billing.amount }} - {{ billing.date }} -
+        {{billing.status}}
+        <a href="{% url 'billing_update' billing.pk %}">Edit</a>
+        <a href="{% url 'billing_delete' billing.pk %}">Delete</a>
+      </li>
+      {% empty %}
+      <li>No billing records found.</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'billing_create' %}">Add New Billing Record</a>
+    {% endblock %}
+  </body>
+</html>

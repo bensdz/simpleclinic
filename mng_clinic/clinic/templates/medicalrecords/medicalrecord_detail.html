@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Medical Record Detail</title>
+  </head>
+  <body>
+    {% block content %}
+    <h2>Medical Record Detail</h2>
+    <p><strong>Date:</strong> {{ medicalrecord.visit_date }}</p>
+    <p><strong>medicalrecord:</strong> {{ medicalrecord.medicalrecord }}</p>
+    <p><strong>Doctor:</strong> {{ medicalrecord.doctor }}</p>
+    <p><strong>Diagnosis:</strong> {{ medicalrecord.diagnosis }}</p>
+    <p><strong>Treatment Plan:</strong> {{ medicalrecord.treatment_plan }}</p>
+    <p><strong>Procedure:</strong> {{ medicalrecord.procedure }}</p>
+    <p><strong>Notes:</strong> {{ medicalrecord.notes }}</p>
+    <a href="{% url 'medicalrecord_update' medicalrecord.pk %}">Edit</a>
+    <a href="{% url 'medical_record_delete' medicalrecord.id %}">Delete</a>
+    {% endblock %}
+  </body>
+</html>

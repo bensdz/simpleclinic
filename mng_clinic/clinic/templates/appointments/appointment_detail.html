@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Appointment Detail: {{ appointment.date }} - {{ appointment.patient }}
+    </title>
+  </head>
+  <body>
+    {% block content %}
+    <h2>
+      Appointment Detail: {{ appointment.date }} - {{ appointment.patient }}
+      with {{ appointment.doctor }}
+    </h2>
+    <p>Purpose: {{ appointment.purpose }}</p>
+    <p>Time: {{ appointment.time }}</p>
+    <p>Status: {{ appointment.status }}</p>
+
+    <a href="{% url 'appointment_update' appointment.id %}">Edit Appointment</a>
+    <a href="{% url 'appointment_delete' appointment.id %}">Delete</a>
+    {% endblock %}
+  </body>
+</html>

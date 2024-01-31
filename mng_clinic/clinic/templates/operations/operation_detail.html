@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static '/style.css' %}" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operation Detail</title>
+  </head>
+  <body>
+    <h2>Operation N° {{operation.id}} :</h2>
+    <p>Date: {{ operation.date }}</p>
+    <p>Type: {{ operation.type }}</p>
+    <p>Status: {{operation.status}}</p>
+    <p>Doctor: {{ operation.doctor }}</p>
+    <p>Patient: {{ operation.patient }}</p>
+    <a href="{% url 'operation_update' operation.id %}">Update</a>
+    <a href="{% url 'operation_delete' operation.id %}">Delete</a>
+    <br />
+    <a href="{% url 'operation_list' %}">Back to Operations List</a>
+  </body>
+</html>
